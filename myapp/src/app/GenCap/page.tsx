@@ -105,20 +105,17 @@ const page = () => {
     charIndexRef.current = 0;
 
     try {
-      const apiResponse = await fetch(
-        "https://f428-34-125-213-228.ngrok-free.app/generate",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: prompt,
-          }),
-          mode: "cors",
-        }
-      );
-
+      const apiResponse = await fetch("https://138a-34-87-62-54.ngrok-free.app/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: prompt,
+        }),
+        mode: "cors",
+      });
+      
       if (!apiResponse.ok) {
         throw new Error(`API responded with status: ${apiResponse.status}`);
       }
