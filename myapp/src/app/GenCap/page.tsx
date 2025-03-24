@@ -55,7 +55,7 @@ const page = () => {
     charIndexRef.current = 0;
     
     try {
-      const apiResponse = await fetch("https://138a-34-87-62-54.ngrok-free.app/generate", {
+      const apiResponse = await fetch("https://76c2-34-125-96-178.ngrok-free.app/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
