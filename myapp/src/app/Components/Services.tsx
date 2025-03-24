@@ -60,6 +60,7 @@ function Services() {
       </div>
 
               <div className="flex w-full justify-center items-center">
+          <a href="/GenCap">
         <motion.button
           style={{
             border,
@@ -76,8 +77,9 @@ function Services() {
           Generate Caption
             </div>
         </motion.button>
-
-        <motion.button
+        </a>
+        
+        <a href="/GenPost"><motion.button
           style={{
             border,
             boxShadow,
@@ -93,6 +95,7 @@ function Services() {
           Generate Image
             </div>
         </motion.button>
+        </a>
         </div>
     </>
   );
