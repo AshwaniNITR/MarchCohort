@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion"; 
 import { useEffect } from "react";
 import { useMotionTemplate, useMotionValue, animate } from "framer-motion"; 
@@ -34,7 +34,7 @@ function Footer() {
   const TextSplit = Heading.split("");
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
-
+  console.log(border, boxShadow);
   return (
     <>
       <div className="flex w-full justify-center items-center -mb-10 mt-30">
