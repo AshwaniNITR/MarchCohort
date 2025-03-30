@@ -1,18 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface TweetButtonProps {
   generatedImage: string;
-  generatedCaption: string;
 }
 
-const TweetButton: React.FC<TweetButtonProps> = ({ generatedImage, generatedCaption }) => {
+const TweetButton: React.FC<TweetButtonProps> = ({ generatedImage }) => {
   const [uploading, setUploading] = useState(false);
+  const [generatedCaption, setGeneratedCaption] = useState("");
+
+  useEffect(() => {
+    // Extract lastFullResponse from Local Storage
+    const lastResponse = localStorage.getItem("lastFullResponse");
+
+    if (lastResponse && lastResponse.trim() !== "") {
+      setGeneratedCaption(lastResponse);
+      console.log("Extracted Caption:", lastResponse);
+    } else {
+      console.warn("No caption found in Local Storage");
+    }
+  }, []);
 
   const handleTweetImage = async () => {
-    if (!generatedImage || !generatedCaption) {
-      alert("Image or caption missing!");
+    if (!generatedImage) {
+      alert("Image missing!");
       return;
     }
 
@@ -30,10 +42,10 @@ const TweetButton: React.FC<TweetButtonProps> = ({ generatedImage, generatedCapt
       // Upload Image to Cloudinary
       const formData = new FormData();
       formData.append("file", blob);
-      formData.append("upload_preset", "unsigned_preset"); 
+      formData.append("upload_preset", "unsigned_preset");
 
       const cloudinaryResponse = await fetch(
-        `https://api.cloudinary.com/v1_1/duwddcqzi/image/upload`, 
+        `https://api.cloudinary.com/v1_1/duwddcqzi/image/upload`,
         {
           method: "POST",
           body: formData,
@@ -45,10 +57,17 @@ const TweetButton: React.FC<TweetButtonProps> = ({ generatedImage, generatedCapt
         throw new Error("Image upload failed");
       }
 
-      // Encode Image URL & Caption for Twitter
-      const imageUrl = encodeURIComponent(data.secure_url);
-      const tweetText = encodeURIComponent(generatedCaption);
-      const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${imageUrl}`;
+      // Ensure caption exists and format it properly
+      const captionText = generatedCaption ? generatedCaption : "Check out this image!";
+      const additionalText = " - Check out the image here!";
+      const maxCaptionLength = 280 - additionalText.length - 25; // Reserve extra 25 characters
+
+      // Slice caption to fit within Twitter's character limit
+      const slicedCaption = captionText.slice(0, maxCaptionLength) + additionalText;
+      
+      const encodedCaption = encodeURIComponent(slicedCaption);
+      const encodedImageUrl = encodeURIComponent(data.secure_url);
+      const tweetUrl = `https://twitter.com/intent/tweet?text=${encodedCaption}&url=${encodedImageUrl}`;
 
       // Open Twitter Web Intent
       window.open(tweetUrl, "_blank");

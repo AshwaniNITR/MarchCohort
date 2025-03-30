@@ -403,7 +403,7 @@ const Page = () => {
     setSelectedLanguage("original");
 
     try {
-      const apiResponse = await fetch("https://a2c0-34-16-142-205.ngrok-free.app/generate", {
+      const apiResponse = await fetch("https://dc6b-34-16-243-241.ngrok-free.app/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
