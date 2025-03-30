@@ -527,6 +527,9 @@ const Page = () => {
 
   return (
     <motion.section
+    initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
       style={{ backgroundImage }}
       className="relative min-h-screen overflow-hidden bg-gray-950"
     >

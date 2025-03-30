@@ -48,27 +48,34 @@ export const Hero = () => {
   return (
     <>
     <motion.section
-      style={{
-        backgroundImage,
-        backgroundAttachment: "fixed", // Keeps the background fixed while scrolling
-    backgroundSize: "cover", // Ensures it covers the full area
-    backgroundPosition: "center", // Centers the gradient
-      }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+    style={{ backgroundImage, backgroundAttachment: "fixed", backgroundSize: "cover", backgroundPosition: "center" }}
       className="relative grid min-h-screen place-content-center overflow-hidden bg-gray-950 px-4 py-24 text-gray-200"
     >
-      <div className="flex w-full justify-center items-center mt-10 mb-5">
-      <img src="https://res.cloudinary.com/duwddcqzi/image/upload/v1742673059/booking-jini-high-resolution-logo_1_oeaysp.png" className=" h-60 rounded-2xl" alt="Logo"></img>
-      </div>
-      <div className="relative z-10 flex flex-col items-center">
-        <motion.h1 initial="hidden" whileInView="reveal" transition={{staggerChildren:.03}} className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight ">
+      <motion.div 
+          className="flex w-full justify-center items-center mt-16 mb-12"
+          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+      <img src="https://res.cloudinary.com/duwddcqzi/image/upload/v1742673059/booking-jini-high-resolution-logo_1_oeaysp.png" className=" h-44 rounded-2xl" alt="Logo"></img>
+      </motion.div>
+      <div className="relative z-10 flex flex-col items-center mb-32">
+        <motion.h1 initial="hidden" whileInView="reveal" transition={{staggerChildren:.03}} className="w-2/3 mb-4 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight ">
         {TextSplit.map((char,index) => (<motion.span key={index} transition={{duration: 0.6, ease: "easeOut", // Smoother easing
       }} variants={CharVariants}>
             {char}
         </motion.span>))}
         </motion.h1>
-        <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed mb-20">
+        <motion.p 
+         whileInView={{ opacity: 1, y: 0 }}
+         initial={{ opacity: 0, y: 30 }}
+         transition={{ duration: 0.8, ease: "easeOut" }}
+         className="my-6 w-2/3 text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
         🚀 Get your ready-made posts with catchy captions for Instagram & Twitter 📸
-        </p>
+        </motion.p>
 
        
 
@@ -147,9 +154,29 @@ export const Hero = () => {
           <Stars radius={50} count={3000} factor={4} fade speed={2} />
         </Canvas>
       </div>
-      <About/>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        >
+
+        <About/>
+        </motion.div>
+
+        <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+      >
       <Services/>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+      >
       <Footer/>
+      </motion.div>
     </motion.section>
 
         </>
