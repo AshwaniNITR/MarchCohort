@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/Components/ImageEditor.jsx"
-  ],
+, "src/app/GenCap/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

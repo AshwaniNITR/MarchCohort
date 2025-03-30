@@ -59,6 +59,7 @@ export async function POST(req: Request) {
         const data = await response.json();
         return NextResponse.json(data);
     } catch (error) {
+        console.error("Error in API route:", error);
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 }

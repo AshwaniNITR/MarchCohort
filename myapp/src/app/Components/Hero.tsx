@@ -57,7 +57,7 @@ export const Hero = () => {
       className="relative grid min-h-screen place-content-center overflow-hidden bg-gray-950 px-4 py-24 text-gray-200"
     >
       <div className="flex w-full justify-center items-center mt-10 mb-5">
-      <img src="https://res.cloudinary.com/duwddcqzi/image/upload/v1742673059/booking-jini-high-resolution-logo_1_oeaysp.png" className=" h-60 rounded-2xl" alt="Logo"></img>
+      <img src="/favicon.png" className=" h-60 rounded-2xl" alt="Logo"></img>
       </div>
       <div className="relative z-10 flex flex-col items-center">
         <motion.h1 initial="hidden" whileInView="reveal" transition={{staggerChildren:.03}} className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight ">

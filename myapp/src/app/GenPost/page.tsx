@@ -258,7 +258,7 @@ const Page = () => {
             <div className="flex-1 flex flex-col items-center">
               <div className="relative group w-full rounded-lg overflow-hidden border border-gray-700/50 shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
                 <img
-                  src={generatedImage}
+                  src={generatedImage || "/image-placeholder.svg"}
                   alt="Generated"
                   className="w-full h-auto object-contain"
                 />

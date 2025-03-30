@@ -273,14 +273,14 @@ export async function POST(req: Request) {
             headers: { "Content-Type": "image/webp" },
           });
         }
-      } catch (error: any) {
+      } catch (error: string | any) {
         const status = error.response?.status;
         console.error(`API key at index ${apiKeyIndex} failed with status: ${status}. Error:`, error.message);
-
         // Increase API key index and try the next one
         apiKeyIndex++;
         continue;
       }
+    
 
       // If we reach here, increase API key index
       apiKeyIndex++;
@@ -288,7 +288,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ error: "All API keys failed" }, { status: 500 });
   } catch (error: unknown) {
-    let errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
     console.error("Final error: ", errorMessage);
     return NextResponse.json({ error: errorMessage }, { status: 500 });
   }

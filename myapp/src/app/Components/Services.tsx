@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { useMotionTemplate, useMotionValue, animate } from "framer-motion"; 
+import { useMotionTemplate, useMotionValue, animate } from "framer-motion";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -59,44 +59,103 @@ function Services() {
         </motion.h4>
       </div>
 
-              <div className="flex w-full justify-center items-center">
-          <a href="/GenCap">
-        <motion.button
-          style={{
-            border,
-            boxShadow,
-          }}
-          whileHover={{
-            scale: 1.015,
-          }}
-          whileTap={{
-            scale: 0.985,
-          }}
-          className="mr-6 mt-4 group relative flex w-fit items-center gap-1.5 rounded-2xl bg-gray-950/10 px-20 py-10 text-gray-50 transition-colors hover:bg-gray-950/50 "
-        ><div className="flex flex-col"><img src="https://res.cloudinary.com/duwddcqzi/image/upload/v1742665807/business_13800592_angzvc.png" alt="" className="h-40 transition-transform group-hover:-rotate-3 group-active:-rotate-12" />
-          Generate Caption
+      <div className="flex w-full justify-center items-center">
+        <a href="/GenCap">
+          <motion.button
+            style={{
+              border,
+              boxShadow,
+            }}
+            whileHover={{
+              scale: 1.015,
+            }}
+            whileTap={{
+              scale: 0.985,
+            }}
+            className="mr-6 mt-4 group relative flex w-fit items-center gap-1.5 rounded-2xl bg-gray-950/10 px-20 py-10 text-gray-50 transition-colors hover:bg-gray-950/50 "
+          >
+            <div className="flex flex-col">
+              <img
+                src="/capic.png"
+                alt=""
+                className="h-40 transition-transform group-hover:-rotate-3 group-active:-rotate-12"
+              />
+              Generate Caption
             </div>
-        </motion.button>
+          </motion.button>
         </a>
-        
-        <a href="/GenPost"><motion.button
-          style={{
-            border,
-            boxShadow,
-          }}
-          whileHover={{
-            scale: 1.015,
-          }}
-          whileTap={{
-            scale: 0.985,
-          }}
-          className="ml-6 mt-4 group relative flex w-fit items-center gap-1.5 rounded-2xl bg-gray-950/10 px-20 py-10 text-gray-50 transition-colors hover:bg-gray-950/50"
-        ><div className="flex flex-col"><img src="https://res.cloudinary.com/duwddcqzi/image/upload/v1742666359/image_419252_xe3gf8.png" alt="" className="h-40 transition-transform group-hover:-rotate-3 group-active:-rotate-12" />
-          Generate Image
+
+        <a href="/GenPost">
+          <motion.button
+            style={{
+              border,
+              boxShadow,
+            }}
+            whileHover={{
+              scale: 1.015,
+            }}
+            whileTap={{
+              scale: 0.985,
+            }}
+            className="ml-6 mt-4 group relative flex w-fit items-center gap-1.5 rounded-2xl bg-gray-950/10 px-20 py-10 text-gray-50 transition-colors hover:bg-gray-950/50"
+          >
+            <div className="flex flex-col">
+              <img src="/imgic.png"
+               alt=""
+                className="h-40 transition-transform group-hover:-rotate-3 group-active:-rotate-12"
+               />
+              Generate Poster
             </div>
-        </motion.button>
+          </motion.button>
         </a>
-        </div>
+        <a href="/GenGif">
+          <motion.button
+            style={{
+              border,
+              boxShadow,
+            }}
+            whileHover={{
+              scale: 1.015,
+            }}
+            whileTap={{
+              scale: 0.985,
+            }}
+            className="ml-6 mt-4 group relative flex w-fit items-center gap-1.5 rounded-2xl bg-gray-950/10 px-20 py-10 text-gray-50 transition-colors hover:bg-gray-950/50"
+          >
+            <div className="flex flex-col">
+              <img src="/gific.png"
+               alt=""
+                className="h-40 transition-transform group-hover:-rotate-3 group-active:-rotate-12"
+               />
+              Generate Gif
+            </div>
+          </motion.button>
+        </a>
+        <a href="/GenTemp">
+          <motion.button
+            style={{
+              border,
+              boxShadow,
+            }}
+            whileHover={{
+              scale: 1.015,
+            }}
+            whileTap={{
+              scale: 0.985,
+            }}
+            className="ml-6 mt-4 group relative flex w-fit items-center gap-1.5 rounded-2xl bg-gray-950/10 px-20 py-10 text-gray-50 transition-colors hover:bg-gray-950/50"
+          >
+            <div className="flex flex-col">
+              <img src="/gific.png"
+               alt=""
+                className="h-40 transition-transform group-hover:-rotate-3 group-active:-rotate-12"
+               />
+              Check Out Our Templates!
+            </div>
+          </motion.button>
+        </a>
+
+      </div>
     </>
   );
 }
