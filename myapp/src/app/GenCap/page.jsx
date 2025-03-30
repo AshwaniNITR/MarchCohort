@@ -128,7 +128,7 @@ const Page = () => {
     setSelectedLanguage("original");
 
     try {
-      const apiResponse = await fetch("https://27f7-34-126-134-41.ngrok-free.app/generate", {
+      const apiResponse = await fetch("https://a2c0-34-16-142-205.ngrok-free.app/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -181,7 +181,7 @@ const Page = () => {
   
     try {
       // Format the request body to match the required structure
-      const apiResponse = await fetch("https://b9cb-35-204-240-0.ngrok-free.app/translate", {
+      const apiResponse = await fetch("https://62c8-35-221-208-195.ngrok-free.app/translate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -225,6 +225,12 @@ const Page = () => {
     }
   };
 
+  const handleLanguageChange = (e) => {
+    const newLang = e.target.value;
+    setSelectedLanguage(newLang);
+    handleTranslate(newLang);
+  };
+
   const handleCopy = () => {
     navigator.clipboard.writeText(displayedResponse);
     alert("Copied to clipboard!");
@@ -246,6 +252,9 @@ const Page = () => {
 
   return (
     <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
       style={{ backgroundImage }}
       className="relative min-h-screen overflow-hidden bg-gray-950"
     >

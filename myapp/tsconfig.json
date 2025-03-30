@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/Components/ImageEditor.jsx"
-, "src/app/GenCap/page.jsx"  ],
+, "src/app/GenCap/page.jsx", "src/app/api/generate/route.js", "src/app/GenPost/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

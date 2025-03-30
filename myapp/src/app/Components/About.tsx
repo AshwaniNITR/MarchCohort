@@ -77,7 +77,7 @@ function About() {
 
   return (
     <>
-      <div className="flex w-full justify-center items-center mb-10">
+      <div className="flex w-full justify-center items-center mb-10" id="about">
         <motion.h4
           initial="hidden"
           whileInView="reveal"
@@ -156,6 +156,5 @@ function About() {
 }
 
 export default About;
-
 
 
